@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout2}">
+
+<th:block layout:fragment="css">
+    <link th:href="@{/css/s_default.css}" rel="stylesheet">
+    <link th:href="@{/css/s_setting.css}" rel="stylesheet">
+</th:block>
+
+<div layout:fragment="content">
+    <div id="settingBoard">
+        <div id="settingLeftSideBar">
+            <div id="settingTab"> <!--좌측란-->
+                <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true" onclick="clickManageMenu(this)">- 메뉴 관리</span>
+                </button>
+                <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true" onclick="clickManageBlocked(this)">- 차단 관리</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="settingRightSideBar">
+            <h2>설정</h2>
+
+            <div> <!--우측란-->
+                <div id="showManageMenu"> <!--th:if 구분 예정-->
+                    <h3>메뉴 관리</h3>
+                    <table>
+                        <tr style="height: 40px;">
+                            <td><p>사진첩</p></td>
+                            <td><button type="button" class="settingDeleteButton" aria-label="Close">
+                                <span aria-hidden="true" onclick="manageBlocked(this)">&times;</span>
+                            </button></td>
+                        </tr>
+                        <tr style="height: 40px;">
+                            <td><p>동영상</p></td>
+                            <td><button type="button" class="settingDeleteButton" aria-label="Close">
+                                <span aria-hidden="true" onclick="manageBlocked(this)">&times;</span>
+                            </button></td>
+                        </tr>
+                        <tr style="height: 40px;">
+                            <td><p>게시판</p></td>
+                            <td><button type="button" class="settingDeleteButton" aria-label="Close">
+                                <span aria-hidden="true" onclick="manageBlocked(this)">&times;</span>
+                            </button></td>
+                        </tr>
+                        <tr style="height: 40px;">
+                            <td><p>다이어리</p></td>
+                            <td><button type="button" class="settingDeleteButton" aria-label="Close">
+                                <span aria-hidden="true" onclick="manageBlocked(this)">&times;</span>
+                            </button></td>
+                        </tr>
+                        <tr style="height: 40px;">
+                            <td><p>방명록</p></td>
+                            <td><button type="button" class="settingDeleteButton" aria-label="Close">
+                                <span aria-hidden="true" onclick="manageBlocked(this)">&times;</span>
+                            </button></td>
+                        </tr>
+                        <tr style="height: 40px;">
+                            <td><p>즐겨찾기</p></td>
+                            <td><button type="button" class="settingDeleteButton" aria-label="Close">
+                                <span aria-hidden="true" onclick="manageBlocked(this)">&times;</span>
+                            </button></td>
+                        </tr>
+                        <tr></tr> <!--css용 tr-->
+                    </table>
+                </div>
+
+                <div id="showManageBlocked"> <!--th:if 구분 예정-->
+                    <h3>차단 관리</h3>
+
+                    <div>
+                        <table>
+                            <span> <!--th:each용 span-->
+                            <tr style="height: 40px;">
+                                <td><p>홍길동</p></td>
+                                <td><button type="button" class="settingDeleteButton" aria-label="Close">
+                                    <span aria-hidden="true" onclick="manageBlocked(this)">&times;</span>
+                                </button></td>
+                            </tr>
+                            </span>
+                            <tr></tr> <!--css용 tr-->
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+
+<th:block layout:fragment="css">
+    <link th:href="@{/css/s_default.css}" rel="stylesheet">
+    <link th:href="@{/css/s_guestbook.css}" rel="stylesheet">
+</th:block>
+
+<div layout:fragment="content">
+    <div id="guestbookBoard">
+        <h2>방명록</h2>
+
+        <div id="guestbookWriteDiv">
+    <!--        <form role="form" method="post" enctype="multipart/form-data" th:object="">-->
+            <form role="form" method="post" enctype="multipart/form-data">
+                <div id="guestbookWriteProfileImg">
+                    <img th:src="@{/img/guestbookProfile.jpg}" alt="profileImg"> <!--현재 접속한 사람의 프로필사진-->
+                </div>
+                <div id="guestbookWriteInput">
+                    <textarea class="form-control"></textarea> <!--th:field 추가 필요-->
+                </div>
+                <div id="guestbookWriteBtn">
+    <!--                <button type="submit">확인</button>-->
+                    <span aria-hidden="true" onclick="makeSubmit(this)">등록</span> <!--th:data-id 추가 필요-->
+                </div>
+            </form>
+        </div>
+
+        <div id="guestbookWritten">
+            <div id="eachWritten"> <!--남겨진 방명록글 하나에 대한 div--> <!--th:each 돌릴 예정-->
+                <div> <!--남겨진 내용에 대한 div-->
+                    <div>
+                        <img th:src="@{/img/guestbookProfile.jpg}" alt="profileImg"> <!--글 남긴 사람의 프로필사진-->
+                    </div>
+                    <div>
+                        <div>
+                            <p>홍길동</p>
+                            <a href="/">홈</a> <!--글 남긴 사람 홈피로 가는 링크-->
+                        </div>
+                        <div>
+                            <button type="button" class="close" aria-label="Close">
+                                <span aria-hidden="true" onclick="makeHidden(this)">숨기기</span>
+                            </button>
+                            <button type="button" class="close" aria-label="Close">
+                                <span aria-hidden="true" onclick="makeDeleted(this)">삭제</span>
+                            </button>
+                            <button type="button" class="close" aria-label="Close">
+                                <span aria-hidden="true" onclick="makeBlocked(this)">차단</span>
+                            </button> <!--th:data-id 추가 필요-->
+                        </div>
+    <!--                    <div>-->
+    <!--                        <p th:text=""></p> &lt;!&ndash;내용&ndash;&gt;-->
+    <!--                    </div>-->
+                    </div>
+                </div>
+                <div> <!--댓글 남길 공간-->
+                    <input type="text" placeholder="댓글 남기기">
+                    <button type="button" class="close" aria-label="Close">
+                        <span aria-hidden="true" onclick="leaveReply(this)">등록</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

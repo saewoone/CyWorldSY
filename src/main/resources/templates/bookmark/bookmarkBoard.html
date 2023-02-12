@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+
+<th:block layout:fragment="css">
+    <link th:href="@{/css/s_default.css}" rel="stylesheet">
+    <link th:href="@{/css/s_bookmark.css}" rel="stylesheet">
+</th:block>
+
+<div layout:fragment="content">
+    <span id="bookmarkBoard">
+        <h2>즐겨찾기</h2>
+
+        <div class="bookmarkCard"> <!--th:if 돌릴 부분-->
+            <div class="bookmarkCardImg">
+                <img th:src="@{/img/guestbookProfile.jpg}" alt="profileImg"> <!--프로필사진-->
+            </div>
+            <div>
+                <a href="/">ㅇㅇㅇ님의 미니홈피 가기</a>
+            </div>
+            <div class="bookmarkCardBtn">
+                <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true" onclick="makeDisconnected(this)">연결끊기</span>
+                </button>
+            </div>
+        </div>
+        <div class="bookmarkCard"> <!--th:if 돌릴 부분-->
+            <div class="bookmarkCardImg">
+                <img th:src="@{/img/guestbookProfile.jpg}" alt="profileImg"> <!--프로필사진-->
+            </div>
+            <div>
+                <a href="/">ㅁㅁㅁ님의 미니홈피 가기</a>
+            </div>
+            <div class="bookmarkCardBtn">
+                <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true" onclick="makeDisconnected(this)">연결끊기</span>
+                </button>
+            </div>
+        </div>
+
+    </span>
+</div>
