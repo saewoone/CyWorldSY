@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout2}">
+
+<th:block layout:fragment="css">
+    <link th:href="@{/css/s_default.css?after}" rel="stylesheet">
+    <link th:href="@{/css/s_setting.css?after}" rel="stylesheet">
+</th:block>
+
+<th:block layout:fragment="script">
+    <script th:inline="javascript">
+    </script>
+</th:block>
+
+<div layout:fragment="content">
+    <div id="settingBoard">
+        <div id="settingLeftSideBar">
+            <div id="settingTab"> <!--좌측란-->
+                <div class="settingMenuBtn">
+                    <a href="/setting/menu">- 메뉴 관리</a>
+                </div>
+                <div class="settingMenuBtn">
+                    <a href="/setting/blocked" class="settingMenuBtn">- 차단 관리</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="settingRightSideBar">
+            <h2>설정</h2>
+
+            <div> <!--우측란-->
+                <div id="showManageMenu"> <!--th:if 구분 예정-->
+                    <form action="/setting/saveMenuSetting" role="form" method="post" th:object="${settingManageMenuDto}">
+                        <h3>메뉴 관리</h3>
+                            <table>
+                                <tr>
+                                    <td>사진 앨범</td>
+                                    <td>
+                                        <label for="onAlbumPhoto">사용</label>
+                                        <input type="radio" name="cAlbumPhoto" id="onAlbumPhoto" value="ON" th:field="*{albumPhoto}"
+                                               th:checked="${settingManageMenuDto.albumPhoto == 'ON'}">
+                                        </td>
+                                    <td><label for="offAlbumPhoto">사용 안 함</label>
+                                        <input type="radio" name="cAlbumPhoto" id="offAlbumPhoto" value="OFF" th:field="*{albumPhoto}">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>동영상</td>
+                                    <td>
+                                        <label for="onAlbumVideo">사용</label>
+                                        <input type="radio" name="cAlbumVideo" id="onAlbumVideo" value="ON" th:field="*{albumVideo}"
+                                               th:checked="${settingManageMenuDto.albumVideo == 'ON'}">
+                                    </td>
+                                    <td><label for="offAlbumVideo">사용 안 함</label>
+                                        <input type="radio" name="cAlbumVideo" id="offAlbumVideo" value="OFF" th:field="*{albumVideo}">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>게시판</td>
+                                    <td>
+                                        <label for="onBoard">사용</label>
+                                        <input type="radio" name="cBoard" id="onBoard" value="ON" th:field="*{board}"
+                                               th:checked="${settingManageMenuDto.board == 'ON'}">
+                                    </td>
+                                    <td><label for="offBoard">사용 안 함</label>
+                                        <input type="radio" name="cBoard" id="offBoard" value="OFF" th:field="*{board}">
+                                    </td>
+                                </tr>
+                                <tr style="height: 40px;">
+                                    <td>다이어리</td>
+                                    <td>
+                                        <label for="onDiary">사용</label>
+                                        <input type="radio" name="cDiary" id="onDiary" value="ON" th:field="*{diary}"
+                                               th:checked="${settingManageMenuDto.board == 'ON'}">
+                                    </td>
+                                    <td><label for="offDiary">사용 안 함</label>
+                                        <input type="radio" name="cDiary" id="offDiary" value="OFF" th:field="*{diary}">
+                                    </td>
+                                </tr>
+                                <tr style="height: 40px;">
+                                    <td>방명록</td>
+                                    <td>
+                                        <label for="onGuestbook">사용</label>
+                                        <input type="radio" name="cGuestbook" id="onGuestbook" value="ON" th:field="*{guestbook}"
+                                               th:checked="${settingManageMenuDto.guestbook == 'ON'}">
+                                    </td>
+                                    <td><label for="offGuestbook">사용 안 함</label>
+                                        <input type="radio" name="cGuestbook" id="offGuestbook" value="OFF" th:field="*{guestbook}">
+                                    </td>
+                                </tr>
+                                <tr style="height: 40px;">
+                                    <td>즐겨찾기</td>
+                                    <td>
+                                        <label for="onBookmark">사용</label>
+                                        <input type="radio" name="cBookmark" id="onBookmark" value="ON" th:field="*{bookmark}"
+                                               th:checked="${settingManageMenuDto.bookmark == 'ON'}">
+                                    </td>
+                                    <td><label for="offBookmark">사용 안 함</label>
+                                        <input type="radio" name="cBookmark" id="offBookmark" value="OFF" th:field="*{bookmark}">
+                                    </td>
+                                </tr>
+                                <tr></tr>
+                            </table>
+                        <div id="settingMenuSubmitBtn">
+                            <button type="submit">등록</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

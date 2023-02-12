@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout2}">
+
+<th:block layout:fragment="css">
+    <link th:href="@{/css/s_default.css?after}" rel="stylesheet">
+    <link th:href="@{/css/s_setting.css?after}" rel="stylesheet">
+</th:block>
+
+<th:block layout:fragment="script">
+    <script th:inline="javascript">
+    </script>
+</th:block>
+
+<div layout:fragment="content">
+    <div id="settingBoard">
+        <div id="settingLeftSideBar">
+            <div id="settingTab"> <!--좌측란-->
+                <div class="settingMenuBtn">
+                    <a href="/setting/menu">- 메뉴 관리</a>
+                </div>
+                <div class="settingMenuBtn">
+                    <a href="/setting/blocked" class="settingMenuBtn">- 차단 관리</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="settingRightSideBar">
+            <h2>설정</h2>
+
+            <div> <!--우측란-->
+                <div id="showManageBlocked"> <!--th:if 구분 예정-->
+                    <h3>차단 관리</h3>
+
+                    <div>
+                        <table>
+                            <span> <!--th:each용 span-->
+                            <tr style="height: 40px;">
+                                <td><p>홍길동</p></td>
+                                <td><button type="button" class="settingDeleteButton" aria-label="Close">
+                                    <span aria-hidden="true" onclick="manageBlocked(this)">&times;</span>
+                                </button></td>
+                            </tr>
+                            </span>
+                            <tr></tr> <!--css용 tr-->
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
