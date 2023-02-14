@@ -1,4 +1,67 @@
-.pw{
-    border: 1px solid blue;
+#loginPageHtml {
+    width: 600px;
+    height: 500px;
+    margin: 80px auto;
+    border: 7px double lightblue;
+    background-color: white;
+    border-radius: 12px;
+    box-sizing: border-box;
+    padding: 100px;
+    text-align: center;
+}
+#loginPageHtml table {
+    margin: 35px auto;
+}
+#loginPageHtml table tr {
+    height: 50px;
+}
+#loginPageHtml table tr td:first-child {
+    width: 100px;
+    text-align: left;
+}
+#loginBtns {
+    text-align: right;
+    margin-top: 50px;
+}
+#loginBtns button {
+    margin-left: 10px;
+    width: 80px;
+    height: 35px;
+}
 
+
+#registerPageHtml {
+    width: 800px;
+    margin: 80px auto;
+    border: 7px double lightblue;
+    background-color: white;
+    border-radius: 12px;
+    box-sizing: border-box;
+    padding: 100px;
+    text-align: center;
+}
+#registerPageHtml table {
+    margin: 35px auto;
+}
+#registerPageHtml table tr {
+    height: 70px;
+}
+#registerPageHtml table tr td {
+    text-align: left;
+}
+#registerPageHtml table tr td:first-child {
+    width: 130px;
+    text-align: left;
+}
+#registerBtns {
+    text-align: right;
+    margin-top: 50px;
+}
+#registerBtns button {
+    margin-left: 10px;
+    width: 80px;
+    height: 35px;
+}
+.registerInputFloat {
+    display: inline;
 }

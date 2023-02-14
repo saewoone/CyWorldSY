@@ -1,9 +1,11 @@
 package com.cyoworld.entity;
 
 import com.cyoworld.constant.Gender;
+import com.cyoworld.dto.MemberFormDto;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;
 
@@ -25,7 +27,7 @@ public class Member {
 
     private String name;
 
-    private String birthday;
+    //private String birthday;
     private int birthdayYear;
     private int birthdayMonth;
     private int birthdayDay;
@@ -35,6 +37,21 @@ public class Member {
     private String address;
 
     private Gender gender;
+
+    public static Member createMember(MemberFormDto memberFormDto, PasswordEncoder passwordEncoder){
+        Member member = new Member();
+        member.setUserId(memberFormDto.getUserId());
+        String password = passwordEncoder.encode(memberFormDto.getPassword());
+        member.setName(memberFormDto.getName());
+        member.setBirthdayYear(memberFormDto.getBirthdayYear());
+        member.setBirthdayMonth(memberFormDto.getBirthdayMonth());
+        member.setBirthdayDay(memberFormDto.getBirthdayDay());
+        member.setEmail(memberFormDto.getEmail());
+        member.setAddress(memberFormDto.getAddress());
+        member.setPassword(password);
+        member.setGender(memberFormDto.getGender());
+        return member;
+    }
 
     //profileImg
     //homeImg

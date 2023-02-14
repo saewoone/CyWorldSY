@@ -12,8 +12,8 @@
     <div class="navigation">
         <div class="navigation__item" id="menuHome">홈</div>
         <div class="navigation__item" id="profile">프로필</div>
-        <div sec:authorize="${#authentication.principal.SettingMenu.albumPhoto == T(com.cyoworld.constant.SettingStatus.ON)}"
-             class="navigation__item" id="photo">사진첩</div> <!--확인 안 됨. 로그인 기능 구현 이후 재시도 예정-->
+        <!--<div sec:authorize="${#authentication.principal.SettingMenu.albumPhoto == T(com.cyoworld.constant.SettingStatus.ON)}"
+             class="navigation__item" id="photo">사진첩</div> 확인 안 됨. 로그인 기능 구현 이후 재시도 예정-->
         <div class="navigation__item" id="video">동영상</div>
         <div class="navigation__item" id="diary">다이어리</div>
         <div class="navigation__item" id="guestbook">
